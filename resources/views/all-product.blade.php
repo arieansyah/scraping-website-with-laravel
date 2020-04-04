@@ -50,29 +50,56 @@
     <!-- /.navbar -->
 
     <!-- Header -->
-    <header id="head" class="secondary"></header>
+    <header id="head">
+        <div class="container">
+            <div class="row">
+                <h1 class="lead">Scarpping Febelio</h1>
+            </div>
+        </div>
+    </header>
     <!-- /Header -->
 
-    <div class="jumbotron top-space">
-        <div class="container">
-            <h3 class="text-center thin">Product</h3>
-            <div class="row">
-                @foreach ($data as $item)
-                <div class="col-md-3 col-sm-6 highlight">
-                    <div class="h-caption">
-                        <a href="{{ route('product.show', $item->id) }}">
-                            <img src="{{ $item->image }}" width="500px">
-                            <h4>{{ $item->title }}</h4>
-                        </a>
-                        <h5>{{ number_format($item->price, 0) }}</h5>
-                    </div>
-                </div>
-                @endforeach
-            </div> <!-- /row  -->
+    <!-- Intro -->
+    <div class="container text-center">
+        <br> <br>
+        <h2 class="thin">All Product</h2>
+        <div class="bs-example" data-example-id="striped-table">
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Username</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
+    <!-- /Intro-->
 
     <footer id="footer" class="top-space">
+
         <div class="footer1">
             <div class="container">
                 <div class="row">
@@ -116,6 +143,11 @@
         </div>
 
     </footer>
+
+
+
+
+
     <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>

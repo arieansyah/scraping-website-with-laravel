@@ -48,7 +48,6 @@ class ProductScarppController extends Controller
         $image = $dom->find('img.product-image-photo');
         $data = [];
         for ($i = 0; $i < $data_length; $i++) {
-
             ($i > 0) ? $data[$i]['image'] = $image[$i]->attr['data-src'] : $data[$i]['image'] = $image[$i]->attr['src'];
             $data[$i]['title'] = $title[$i]->attr['title'];
             $data[$i]['url_product'] = $link[$i]->attr['href'];
@@ -56,9 +55,8 @@ class ProductScarppController extends Controller
             $detail_product = $this->scrapping($link[$i]->attr['href']);
             $data[$i]['description'] = $detail_product->find('div#description')[0]->innertext;
         }
-
-        $this->store($data, $url);
-        return view('detail')->with('data', $data);
+        $result = $this->store($data, $url);
+        return view('product')->with('data', $result);
     }
     /**
      * Store a newly created resource in storage.
@@ -68,8 +66,8 @@ class ProductScarppController extends Controller
      */
     public function store($data, $url)
     {
-        $product = Product::where('url', $url)->count();
-        if (!$product) {
+        $product = Product::where('url', $url)->get();
+        if (!count($product)) {
             foreach ($data as $value) {
                 $store = new Product;
                 $store->title = $value['title'];
@@ -81,6 +79,7 @@ class ProductScarppController extends Controller
                 $store->save();
             }
         }
+        return $product;
     }
 
     /**
@@ -91,6 +90,10 @@ class ProductScarppController extends Controller
      */
     public function show($id)
     {
-
+        $product = Product::find($id);
+        $other_product = Product::where('url', $product->url)->get();
+        return view('detail')
+            ->with('product', $product)
+            ->with('other_product', $other_product);
     }
 }

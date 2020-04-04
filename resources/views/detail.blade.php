@@ -50,40 +50,49 @@
     <!-- /.navbar -->
 
     <!-- Header -->
-    <header id="head">
-        <div class="container">
-            <div class="row">
-                <h1 class="lead">Scarpping Febelio</h1>
-            </div>
-        </div>
-    </header>
+    <header id="head" class="secondary"></header>
     <!-- /Header -->
 
-    <div class="jumbotron top-space">
-        <div class="container">
-
-            <h3 class="text-center thin">Detail</h3>
-
-            <div class="row">
-                @foreach ($data as $item)
-                    <div class="col-md-3 col-sm-6 highlight">
-                        <div class="h-caption">
-                            <a href="{{ $item['url_product'] }}">
-                                <img src="{{ $item['image'] }}" width="500px">
-                                <h4>{{ $item['title'] }}</h4>
-                            </a>
-                            <h5>{{ number_format($item['price_current'], 0) }}</h5>
-                        </div>
-                        {{-- <div class="h-body text-center">
-                            <p>{{  strip_tags($item['description_show'])  }}</p>
-                        </div> --}}
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar -->
+            <aside class="col-md-4 sidebar sidebar-left">
+                <div class="row widget">
+                    <div class="col-xs-12">
+                        <p><img src="{{ $product->image }}" alt=""></p>
                     </div>
-                @endforeach
-            </div> <!-- /row  -->
+                </div>
+            </aside>
+            <!-- /Sidebar -->
 
+            <!-- Article main content -->
+            <article class="col-md-8 maincontent">
+                <header class="page-header">
+                    <h1 class="page-title">{{ $product->title }} |
+                        <strong>Rp.{{ number_format($product->price, 0) }}</strong></h1>
+                </header>
+                {!! $product->description !!}
+                <a href="{{ $product->url_product }}" class="btn btn-action btn-lg" role="button">Order Now</a>
+            </article>
+            <!-- /Article -->
         </div>
+        <article class="col-md-12 maincontent">
+            <header class="page-header">
+                <h1 class="page-title">Other Product</h1>
+            </header>
+            @foreach ($other_product as $item)
+            <div class="col-md-3 col-sm-6 highlight">
+                <div class="h-caption">
+                    <a href="{{ route('product.show', $item->id) }}">
+                        <img src="{{ $item->image }}" width="500px">
+                        <h4>{{ $item->title }}</h4>
+                    </a>
+                    <h5>{{ number_format($item->price, 0) }}</h5>
+                </div>
+            </div>
+            @endforeach
+        </article>
     </div>
-
     <footer id="footer" class="top-space">
 
         <div class="footer1">
