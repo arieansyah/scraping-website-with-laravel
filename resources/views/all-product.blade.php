@@ -7,11 +7,11 @@
     <meta name="description" content="">
     <meta name="author" content="Sergey Pozhilov (GetTemplate.com)">
 
-    <title>Febelio</title>
+    <title>Fabelio</title>
 
 
     <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
-    <link rel="shortcut icon" href="{{ asset('assets/images/gt_favicon.png') }}">
+    <link rel="shortcut icon" href="https://m2fabelio.imgix.net/favicon/stores/1/128x128px.png">
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">
 
@@ -35,12 +35,12 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span
                         class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
                 <a class="navbar-brand" href="index.html">
-                    Febelio
+                    Fabelio
                 </a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav pull-right">
-                    <li class="active"><a href="#">Home</a></li>
+                    <li class="active"><a href="{{ url('/') }}">Home</a></li>
                     <li><a href="about.html">All Product</a></li>
                 </ul>
             </div>
@@ -53,7 +53,7 @@
     <header id="head">
         <div class="container">
             <div class="row">
-                <h1 class="lead">Scarpping Febelio</h1>
+                <h1 class="lead">Scraping Fabelio</h1>
             </div>
         </div>
     </header>
@@ -123,7 +123,7 @@
                     <div class="col-md-6 widget">
                         <div class="widget-body">
                             <p class="simplenav">
-                                <a href="#">Home</a> |
+                                <a href="{{ url('/') }}">Home</a> |
                                 <a href="about.html">All Product</a>
                             </p>
                         </div>

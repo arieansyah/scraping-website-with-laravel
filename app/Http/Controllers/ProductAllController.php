@@ -7,5 +7,5 @@ use App\Product;
 
 class ProductAllController extends Controller
 {
-
+    
 }
