@@ -41,7 +41,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav pull-right">
                     <li class="active"><a href="{{ url('/') }}">Home</a></li>
-                    <li><a href="about.html">All Product</a></li>
+                    <li><a href="{{ url('/product/all') }}">All Product</a></li>
                 </ul>
             </div>
             <!--/.nav-collapse -->
@@ -115,14 +115,7 @@
             <div class="container">
                 <div class="row">
 
-                    <div class="col-md-6 widget">
-                        <div class="widget-body">
-                            <p class="simplenav">
-                                <a href="{{ url('/') }}">Home</a> |
-                                <a href="about.html">All Product</a>
-                            </p>
-                        </div>
-                    </div>
+
 
                     <div class="col-md-6 widget">
                         <div class="widget-body">

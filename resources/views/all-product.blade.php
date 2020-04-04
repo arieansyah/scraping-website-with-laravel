@@ -40,8 +40,8 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav pull-right">
-                    <li class="active"><a href="{{ url('/') }}">Home</a></li>
-                    <li><a href="about.html">All Product</a></li>
+                    <li><a href="{{ url('/') }}">Home</a></li>
+                    <li><a href="{{ url('/product/all') }}">All Product</a></li>
                 </ul>
             </div>
             <!--/.nav-collapse -->
@@ -50,17 +50,11 @@
     <!-- /.navbar -->
 
     <!-- Header -->
-    <header id="head">
-        <div class="container">
-            <div class="row">
-                <h1 class="lead">Scraping Fabelio</h1>
-            </div>
-        </div>
-    </header>
+    <header id="head" class="secondary"></header>
     <!-- /Header -->
 
     <!-- Intro -->
-    <div class="container text-center">
+    <div class="container">
         <br> <br>
         <h2 class="thin">All Product</h2>
         <div class="bs-example" data-example-id="striped-table">
@@ -68,30 +62,26 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Username</th>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>Created</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($data as $key => $item)
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <td>{{ $key+1 }}</td>
+                        <td>{{ $item->title }}</td>
+                        <td>Rp.{{ number_format($item->price, 0) }}</td>
+                        <td>{{ $item->created_at }}</td>
+                        <td>
+                            <a href="{{ route('product.show', $item->id) }}">
+                                <i class="fa fa-eye fa-2" aria-hidden="true"></i>
+                            </a>
+                        </td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -119,16 +109,6 @@
         <div class="footer2">
             <div class="container">
                 <div class="row">
-
-                    <div class="col-md-6 widget">
-                        <div class="widget-body">
-                            <p class="simplenav">
-                                <a href="{{ url('/') }}">Home</a> |
-                                <a href="about.html">All Product</a>
-                            </p>
-                        </div>
-                    </div>
-
                     <div class="col-md-6 widget">
                         <div class="widget-body">
                             <p class="text-right">

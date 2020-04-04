@@ -20,3 +20,5 @@ Route::get('/', function () {
 Route::post('/product', 'ProductScarppController@product')->name('product');
 Route::get('/product/detail/{id}', 'ProductScarppController@show')->name('product.show');
 
+Route::get('/product/all', 'ProductAllController@index');
+
